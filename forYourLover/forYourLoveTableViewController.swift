@@ -14,24 +14,33 @@ class forYourLoveTableViewController: UITableViewController {
     
     var user:userAccount = userAccount(userName: "刘宇轩", userEmail: "1010134430@qq.com", userCode: "123456789", userAge: 20, userGender: 1, userInterestField: nil)!
     
-    var userTodoList:[missionList] = [missionList(missionType: [], missionName: "toefl", missionRemainTime: 10, missionPunishment: [])!]
+    var userTodoList:[missionList] = []{
+        didSet{
+            saveUserToDoList()
+        }
+    }
     
-    typealias propertyList = AnyObject
     
+    //typealias propertyList = AnyObject
+    
+    /*
     var program:propertyList{
         
         get{
             return userTodoList
         }
     }
+*/
+ 
+    
     
     var userDefault = NSUserDefaults.standardUserDefaults()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userDefault.setObject(userTodoList, forKey: "yourToDoList")
-        userDefault.synchronize()
+        //userDefault.setObject(userTodoList, forKey: "yourToDoList")
+        //userDefault.synchronize()
         
         
 
@@ -40,6 +49,26 @@ class forYourLoveTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if let savedUserAccount = loadUserAccount(){
+            user = savedUserAccount
+        }else{
+            print("havent been setted yet")
+        }
+        
+      
+        
+        
+        if let savedToDoList = loadToDoList(){
+            userTodoList = savedToDoList
+            print("i have imformation")
+        }else{
+            print("havent been setted yet to do")
+        }
+
+        
+        for(index,element) in userTodoList.enumerate(){
+            print("\(index)"+element.missionName + "  ")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -128,10 +157,39 @@ class forYourLoveTableViewController: UITableViewController {
         if let destinationViewController = segue.destinationViewController as? ViewController
         {
             print("use create segue to viewcontroller")
+    
            
         }else{
             
         }
     }
+    /*
+    func saveUserAccount() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(user, toFile: userAccount.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save userAccount...")
+        }
+    }
+*/
+    
+    func loadUserAccount() -> userAccount? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(userAccount.ArchiveURL.path!) as? userAccount
+    }
+    
+    
+    func saveUserToDoList() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(userTodoList, toFile: missionList.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save toDolist..")
+        }else{
+            print("store a new imformation")
+        }
+    }
+    
+    
+    func loadToDoList() -> [missionList]? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(missionList.ArchiveURL.path!) as? [missionList]
+    }
 
+   
 }

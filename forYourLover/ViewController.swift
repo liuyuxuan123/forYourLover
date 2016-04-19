@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var myMission = missionList(missionType: [], missionName: "", missionRemainTime: 10, missionPunishment: [])!
+    
     var keepGoing:Bool = true
     
     

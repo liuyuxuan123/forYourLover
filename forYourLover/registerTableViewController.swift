@@ -182,8 +182,16 @@ class registerTableViewController: UITableViewController {
     // MARK: unwind action
     
     @IBAction func getImformation(sender:UIStoryboardSegue){
-        
+        saveUserAccount()   
     }
     
+    func saveUserAccount() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(userImformation!, toFile: userAccount.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save userAccount...")
+        }else{
+            print("store a new imformation")
+        }
+    }
  
 }

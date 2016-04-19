@@ -132,6 +132,7 @@ class registerNameTableViewController: UITableViewController,UITextFieldDelegate
         
         if sender === saveButton {
             destinationViewController.userImformation = userAccount(userName: registerNameTextField.text!, userEmail: (destinationViewController.userImformation?.userEmail)!, userCode: (destinationViewController.userImformation?.userCode)!, userAge: (destinationViewController.userImformation?.userAge)!, userGender: (destinationViewController.userImformation?.userGender)!, userInterestField: destinationViewController.userImformation?.userInterestField)
+            
             print("change name")
            
         }else if sender === cancelButton{

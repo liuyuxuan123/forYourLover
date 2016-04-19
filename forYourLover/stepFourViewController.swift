@@ -43,7 +43,46 @@ class stepFourViewController: UIViewController {
             let destination = createCellStepFourViewController as! UINavigationController
             let destination2 = destination.visibleViewController
             let destination3 = destination2 as! forYourLoveTableViewController
-            destination3.userTodoList.append(myMission!)
+            
+            
+            for(index,element) in destination3.userTodoList.enumerate(){
+                print("hi i am step 4" + "\(index)" + element.missionName)
+            }
+            
+            if destination3.userTodoList.count == 0 {
+                print("fuck no value")
+            }
+            
+            print("after")
+            
+            if var value = destination3.loadToDoList(){
+                value.append(myMission!)
+                destination3.userTodoList = value
+                destination3.saveUserToDoList()
+               // destination3.saveUserToDoList()
+            }else{
+                var value = [myMission!]
+                destination3.userTodoList = value
+                destination3.saveUserToDoList()
+            }
+
+
+            /*
+            for(index,element) in destination3.userTodoList.enumerate(){
+                print("hi i am step 4" + "\(index)" + element.missionName)
+            }
+            
+            if destination3.userTodoList.count == 0 {
+                print("fuck no value")
+            }
+         
+           destination3.userTodoList.append(myMission!)
+           destination3.saveUserToDoList()
+            */
+            for(index,element) in destination3.userTodoList.enumerate(){
+                print("hi i am step 4" + "\(index)" + element.missionName)
+            }
+            
         }else if sender === cancelButton{
             let destination = createCellStepFourViewController as! ViewController
             print("cancelNutton")
