@@ -42,7 +42,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <segue destination="QSp-YW-zAN" kind="presentation" identifier="stepTwo" id="3TA-sN-0S6"/>
+                                            <action selector="usingAnCalendar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SoB-PD-jKv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhB-ap-NES">
@@ -70,6 +70,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3fw-mq-wsV">
+                                <rect key="frame" x="99" y="329" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -82,6 +89,7 @@
                         <outlet property="createListStep2" destination="Jcn-RM-aGK" id="A9Z-Hu-kSP"/>
                         <outlet property="createListStep3" destination="OhB-ap-NES" id="9be-mk-4jl"/>
                         <outlet property="createListStep4" destination="5d1-rj-pDb" id="Ogz-No-cq0"/>
+                        <outlet property="txtViewDetail" destination="3fw-mq-wsV" id="uzN-QU-Wg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -186,88 +194,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66b-Mr-mls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1073" y="312"/>
-        </scene>
-        <!--设置你完成的时间 -->
-        <scene sceneID="Jp4-ZY-bLg">
-            <objects>
-                <viewController id="FVR-U0-2Oh" customClass="stepTwoViewController" customModule="forYourLover" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Jw5-rA-X3q"/>
-                        <viewControllerLayoutGuide type="bottom" id="tAa-iV-NcU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="C5O-DP-Mzx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="EoN-DU-yOv">
-                                <rect key="frame" x="121" y="227" width="183" height="106"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="K13-0j-wVZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="106"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQT-GN-zMe">
-                                                <rect key="frame" x="0.0" y="0.0" width="34" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="目标" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BD-ce-uNy">
-                                                <rect key="frame" x="0.0" y="86" width="34" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IxD-YY-ngr">
-                                        <rect key="frame" x="95" y="0.0" width="88" height="106"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="blw-JC-eF8">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="106"/>
-                                                <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="liuyuxuan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TcP-8M-fqG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="31"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="zhuanqian" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0J-WP-13U">
-                                                        <rect key="frame" x="0.0" y="76" width="88" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="设置你完成的时间 " id="y8v-Uh-tHJ">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Y0N-8Y-daj">
-                            <connections>
-                                <action selector="cancel:" destination="FVR-U0-2Oh" id="isH-tn-lU2"/>
-                                <segue destination="zSg-qr-YNU" kind="unwind" unwindAction="unwindToMainController:" id="uBI-Sc-tNd"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="As6-DX-i5S">
-                            <connections>
-                                <segue destination="zSg-qr-YNU" kind="unwind" unwindAction="unwindToMainController:" id="RJ5-Jk-s0s"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="benifitToYourLover" destination="M0J-WP-13U" id="ux3-wE-iQR"/>
-                        <outlet property="cancelButton" destination="Y0N-8Y-daj" id="MgY-07-HmP"/>
-                        <outlet property="doneButton" destination="As6-DX-i5S" id="qRd-x5-ADr"/>
-                        <outlet property="loverNameTextField" destination="TcP-8M-fqG" id="p2j-Kf-CqQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2cZ-wl-gcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="zSg-qr-YNU" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3509" y="1097"/>
         </scene>
         <!--设置完不成时的惩罚-->
         <scene sceneID="6TU-Hh-mrB">
@@ -659,24 +585,6 @@
                 <exit id="Oq3-Bk-0Fr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4676" y="2304"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QBu-IY-9ul">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QSp-YW-zAN" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1mP-h3-Tgp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FVR-U0-2Oh" kind="relationship" relationship="rootViewController" id="HA1-UK-QaX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NyZ-G6-xzm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1885" y="1097"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r0h-YZ-pod">

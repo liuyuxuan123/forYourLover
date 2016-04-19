@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, EPCalendarPickerDelegate  {
 
     var myMission = missionList(missionType: [], missionName: "", missionRemainTime: 10, missionPunishment: [])!
     
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var createListStep3: UIButton!
     @IBOutlet weak var createListStep4: UIButton!
 
+    @IBOutlet weak var txtViewDetail: UITextView!
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -65,8 +66,50 @@ class ViewController: UIViewController {
         
         }
         
+        
    
     }
+    
+    @IBAction func usingAnCalendar(sender: AnyObject) {
+        let calendarPicker = EPCalendarPicker(startYear: 2016, endYear: 2017, multiSelection: true, selectedDates: [])
+            calendarPicker.calendarDelegate = self
+            calendarPicker.startDate = NSDate()
+            calendarPicker.hightlightsToday = true
+            calendarPicker.showsTodaysButton = true
+            calendarPicker.hideDaysFromOtherMonth = true
+            calendarPicker.tintColor = UIColor.orangeColor()
+            //        calendarPicker.barTintColor = UIColor.greenColor()
+            calendarPicker.dayDisabledTintColor = UIColor.grayColor()
+            calendarPicker.title = "Date Picker"
+            
+            //        calendarPicker.backgroundImage = UIImage(named: "background_image")
+            //        calendarPicker.backgroundColor = UIColor.blueColor()
+            
+            let navigationController = UINavigationController(rootViewController: calendarPicker)
+            self.presentViewController(navigationController, animated: true, completion: nil)
+        }
+        
+        func epCalendarPicker(_: EPCalendarPicker, didCancel error : NSError) {
+            txtViewDetail.text = "User cancelled selection"
+            keepGoing = false
+            setAgain()
+
+            
+        }
+        func epCalendarPicker(_: EPCalendarPicker, didSelectDate date : NSDate) {
+            txtViewDetail.text = "User selected date: \n\(date)"
+            keepGoing = true
+            createListStep2.enabled = false
+            createListStep3.enabled = true
+            
+        }
+        func epCalendarPicker(_: EPCalendarPicker, didSelectMultipleDate dates : [NSDate]) {
+            txtViewDetail.text = "User selected dates: \n\(dates)"
+            keepGoing = true
+            createListStep2.enabled = false
+            createListStep3.enabled = true
+        }
+    
     
     
     
